@@ -8,9 +8,3 @@ def parse_dockerfile(file_path):
         "instructions": [instr for instr in dfp.structure],
     }
     return data
-
-if __name__ == "__main__":
-    file_path = "Dockerfile"  # Change this to your file path
-    result = parse_dockerfile(file_path)
-    print("Base Image:", result["base_image"])
-    print("Instructions:", result["instructions"])
