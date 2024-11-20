@@ -1,23 +1,23 @@
-# Usa un'immagine base generica e grande
+# Use a generic and large base image
 FROM python:latest
 
-# Imposta il working directory
+# Set the working directory
 WORKDIR /app
 
-# Copia i file di dipendenze
+# Copy dependency files
 COPY requirements.txt ./
 
-# Installa le dipendenze
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia il codice sorgente
+# Copy the source code
 COPY . .
 
-# Esegui l'app come utente root (pratica sbagliata)
+# Run the app as the root user (bad practice)
 USER root
 
-# Espone una porta
+# Expose a port
 EXPOSE 5000
 
-# Comando di default
+# Default command
 CMD ["python", "app.py"]

@@ -1,5 +1,5 @@
 def check_base_image(base_image):
-    """Controlla che l'immagine di base sia specifica e ottimizzata."""
+    """Checks if the base image is specific and optimized."""
     issues = []
     if ":latest" in base_image:
         issues.append((
@@ -16,10 +16,10 @@ def check_base_image(base_image):
     return issues
 
 def check_non_root_user(instructions):
-    """Controlla se è presente l'istruzione USER non root."""
+    """Checks if a non-root USER instruction is present."""
     for instr in instructions:
         if instr['instruction'] == 'USER' and instr['value'] != 'root':
-            return []  # Nessun problema trovato
+            return []  # No issues found
     return [(
         "No non-root user specified.",
         "FAIL",
@@ -27,7 +27,7 @@ def check_non_root_user(instructions):
     )]
 
 def check_optimized_run(instructions):
-    """Controlla se i comandi RUN sono ottimizzati."""
+    """Checks if RUN commands are optimized."""
     for instr in instructions:
         if instr['instruction'] == 'RUN' and '&&' not in instr['value']:
             return [(
@@ -35,4 +35,4 @@ def check_optimized_run(instructions):
                 "WARN",
                 "Use '&&' to chain commands in a single RUN."
             )]
-    return []  # Nessun problema trovato
+    return []  # No issues found

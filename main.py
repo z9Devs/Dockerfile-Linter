@@ -8,7 +8,7 @@ from dockerfile_linter import (
 )
 
 def parse_args():
-    """Gestisce i parametri CLI."""
+    """Handles CLI arguments."""
     parser = argparse.ArgumentParser(description="Dockerfile Linter")
     parser.add_argument("dockerfile", help="Path to the Dockerfile to analyze")
     parser.add_argument("--output", choices=["text", "json"], default="text", help="Output format")
@@ -16,28 +16,28 @@ def parse_args():
     return parser.parse_args()
 
 def main():
-    """Funzione principale del programma."""
+    """Main function of the program."""
     args = parse_args()
     
     try:
-        # Parsing del Dockerfile
+        # Parse the Dockerfile
         result = parse_dockerfile(args.dockerfile)
 
-        # Lista dei controlli da eseguire
+        # List of checks to perform
         all_checks = [
             ("Base Image Check", check_base_image(result["base_image"])),
             ("Non-Root User Check", check_non_root_user(result["instructions"])),
             ("Optimized RUN Check", check_optimized_run(result["instructions"]))
         ]
         
-        # Filtra i controlli ignorati
+        # Filter out ignored checks
         issues = []
         for name, check in all_checks:
             if args.ignore and name in args.ignore:
                 continue
             issues.extend(check)
         
-        # Genera il report
+        # Generate the report
         if args.output == "text":
             generate_report(issues)
         elif args.output == "json":

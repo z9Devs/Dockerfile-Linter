@@ -1,7 +1,7 @@
 from dockerfile_parse import DockerfileParser
 
 def parse_dockerfile(file_path):
-    """Legge un Dockerfile e restituisce i dati analizzati."""
+    """Reads a Dockerfile and returns the parsed data."""
     dfp = DockerfileParser(file_path)
     data = {
         "base_image": dfp.baseimage,
@@ -10,7 +10,7 @@ def parse_dockerfile(file_path):
     return data
 
 if __name__ == "__main__":
-    file_path = "Dockerfile"  # Cambia con il tuo percorso
+    file_path = "Dockerfile"  # Change this to your file path
     result = parse_dockerfile(file_path)
     print("Base Image:", result["base_image"])
     print("Instructions:", result["instructions"])
