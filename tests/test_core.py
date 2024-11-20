@@ -4,7 +4,7 @@ import os
 # Add the main directory to the path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Import project modules
+# Import project modules | need to solve the import path
 from dockerfile_linter.core import parse_dockerfile
 from dockerfile_linter.checks import check_base_image, check_non_root_user, check_optimized_run
 from dockerfile_linter.report import generate_report
