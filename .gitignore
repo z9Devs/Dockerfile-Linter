@@ -1,0 +1,29 @@
+# Ambiente virtuale
+venv/
+.env/
+*.env
+
+# File Python compilati
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Log e file temporanei
+*.log
+*.tmp
+*.swp
+*.swo
+
+# File di output
+*.json
+*.yaml
+*.yml
+
+# Configurazioni di sistema e editor
+.idea/
+.vscode/
+*.bak
+
+# File di sistema Windows
+Thumbs.db
+.DS_Store

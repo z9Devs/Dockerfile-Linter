@@ -1,0 +1,23 @@
+# Usa un'immagine base generica e grande
+FROM python:latest
+
+# Imposta il working directory
+WORKDIR /app
+
+# Copia i file di dipendenze
+COPY requirements.txt ./
+
+# Installa le dipendenze
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copia il codice sorgente
+COPY . .
+
+# Esegui l'app come utente root (pratica sbagliata)
+USER root
+
+# Espone una porta
+EXPOSE 5000
+
+# Comando di default
+CMD ["python", "app.py"]
