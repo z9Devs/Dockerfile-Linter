@@ -1,74 +1,74 @@
 
 # Dockerfile Linter
 
-**Dockerfile Linter** è uno strumento open-source scritto in Python che analizza i tuoi Dockerfile e fornisce un report con suggerimenti basati sulle best practice. Aiuta a ottimizzare e rendere più sicuri i tuoi container.
+**Dockerfile Linter** is an open-source tool written in Python that analyzes your Dockerfiles and provides a report with suggestions based on best practices. It helps optimize and secure your containers.
 
-## Caratteristiche
+## Features
 
-- Analisi di immagini base (ad esempio, evitare l'uso di `latest` o raccomandare immagini più leggere).
-- Verifica dell'uso di un utente non root.
-- Suggerimenti per combinare comandi `RUN` per ridurre i layer.
-- Supporto per Dockerfile con nomi personalizzati.
+- Base image analysis (e.g., avoiding the use of `latest` or recommending lighter images).
+- Verification of non-root user usage.
+- Suggestions for combining `RUN` commands to reduce layers.
+- Support for Dockerfiles with custom names.
 
 ---
 
-## Requisiti
+## Requirements
 
-- Python 3.9 o superiore
-- Librerie Python:
+- Python 3.9 or higher
+- Python libraries:
   - `dockerfile-parse`
   - `pytest`
   - `rich`
 
-Puoi installare i requisiti con:
+You can install the requirements with:
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## Installazione
+## Installation
 
-Clona il repository e configura l'ambiente virtuale:
+Clone the repository and set up the virtual environment:
 ```bash
-git clone https://github.com/tuo-repository/dockerfile-linter.git
+git clone https://github.com/la-plas-growth/Dockerfile-Linter.git
 cd dockerfile-linter
 python -m venv venv
-source venv/bin/activate  # Su Windows usa: venv\Scripts\activate
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
 ---
 
-## Utilizzo
+## Usage
 
-### Analisi di un Dockerfile
-Per analizzare un Dockerfile, esegui il comando:
+### Analyze a Dockerfile
+To analyze a Dockerfile, run:
 ```bash
 python main.py /path/to/Dockerfile
 ```
 
-### Specificare un Nome Personalizzato per il Dockerfile
-Il linter supporta file con nomi personalizzati:
+### Specify a Custom Name for the Dockerfile
+The linter supports files with custom names:
 ```bash
 python main.py /path/to/custom_dockerfile
 ```
 
-### Opzioni
-- Puoi scegliere il formato dell'output (testuale o JSON):
+### Options
+- You can choose the output format (text or JSON):
   ```bash
   python main.py /path/to/Dockerfile --output json
   ```
-- Ignora specifici controlli:
+- Ignore specific checks:
   ```bash
   python main.py /path/to/Dockerfile --ignore "Base Image Check"
   ```
 
 ---
 
-## Esempio di Output
+## Output Example
 
-**Output Testuale**:
+**Text Output**:
 ```
 +----------------------------+----------+-----------------------------------------------+
 | Check                      | Severity | Suggestion                                    |
@@ -78,7 +78,7 @@ python main.py /path/to/custom_dockerfile
 +----------------------------+----------+-----------------------------------------------+
 ```
 
-**Output JSON**:
+**JSON Output**:
 ```json
 {
   "issues": [
@@ -98,48 +98,48 @@ python main.py /path/to/custom_dockerfile
 
 ---
 
-## Test
+## Tests
 
-Esegui i test per verificare il corretto funzionamento del progetto:
+Run tests to ensure the project is working correctly:
 ```bash
 pytest
 ```
 
-Il framework `pytest` testerà automaticamente le funzioni principali del progetto.
+The `pytest` framework will automatically test the project's main functions.
 
 ---
 
-## Struttura del Progetto
+## Project Structure
 
 ```
 dockerfile-linter/
 ├── dockerfile_linter/
-│   ├── __init__.py       # File per il modulo principale
-│   ├── checks.py         # Controlli delle best practice
-│   ├── core.py           # Parsing dei Dockerfile
-│   ├── report.py         # Generazione del report
+│   ├── __init__.py       # Main module file
+│   ├── checks.py         # Best practice checks
+│   ├── core.py           # Dockerfile parsing
+│   ├── report.py         # Report generation
 ├── tests/
-│   └── test_core.py      # Test delle funzionalità principali
-├── main.py               # Entry point del programma
-├── Dockerfile            # Esempio di Dockerfile
-├── Dockerfile.bad        # Dockerfile con errori per test
-├── README.md             # Documentazione
+│   └── test_core.py      # Tests for core functionalities
+├── main.py               # Program entry point
+├── Dockerfile            # Example Dockerfile
+├── Dockerfile.bad        # Dockerfile with errors for testing
+├── README.md             # Documentation
 ```
 
 ---
 
-## Contributi
+## Contributions
 
-Se hai idee per migliorare il progetto o hai trovato un bug, apri una issue o invia una pull request su GitHub.
-
----
-
-## Licenza
-
-Questo progetto è distribuito sotto la licenza MIT. Consulta il file `LICENSE` per i dettagli.
+If you have ideas to improve the project or have found a bug, open an issue or submit a pull request on GitHub.
 
 ---
 
-### Contattaci
+## License
 
-Per domande o suggerimenti, invia una mail a: **tuo.email@example.com**.
+This project is distributed under the MIT license. See the `LICENSE` file for details.
+
+---
+
+### Contact Us
+
+For questions or suggestions, email: **info@laplasgrowth.it**.
